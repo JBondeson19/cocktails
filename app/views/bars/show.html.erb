@@ -1,0 +1,7 @@
+<h1> <%= @bar.name %> </h1>
+
+<h3><%= @bar.location %></h3>
+
+<%= button_to("Update Bar Info", edit_bar_path, method: "get") %><br><br>
+
+<%= link_to("Back to All Bars", bars_path) %>

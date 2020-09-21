@@ -1,4 +1,13 @@
 <h1>Cool Bars Are Listed Here</h1>
 
 <ul>
+    <% @bars.each do |bar| %>
+    <li>
+        <%= link_to bar.name, bar_path(bar) %>
+    </li>
+    <% end %>
 </ul>
+
+<%= link_to "Add a bar", new_bar_path %>
+
+
