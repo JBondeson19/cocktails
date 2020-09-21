@@ -13,18 +13,23 @@ class BarsController < ApplicationController
     end
     
     def update
-        @bar.update(name: params[:bar][:name],
-                    location: params[:bar][:location])
-        redirect_to bars_path(bars)
+        @bar.update(bar_params)
+        redirect_to bar_path(@bar)
     end
 
     def new
+        @bar = Bar.new
     end
 
     def create
+        @bar = Bar.new(bar_params)
+        @bar.save
+        redirect_to bars_path(@bar)
     end
     
     def destroy
+        Bar.destroy(params[:id])
+        redirect_to bars_path
     end
 
     private 
@@ -34,6 +39,6 @@ class BarsController < ApplicationController
     end
 
     def bar_params
-
+        params.require(:bar).permit(:name, :location)
     end
 end
