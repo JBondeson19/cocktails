@@ -2,6 +2,21 @@
 
 <h3><%= @bar.location %></h3>
 
+
+<div>Cocktail Menu</div>
+
+<ul>
+    <% @bar.cocktails.each do |cocktail| %>
+        <li>
+            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </li>
+    <% end %>
+</ul>
+
+
+
+
+
 <%= button_to("Update Bar Info", edit_bar_path, method: "get") %><br><br>
 
 <%= link_to("Back to All Bars", bars_path) %>

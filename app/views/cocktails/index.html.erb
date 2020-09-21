@@ -3,4 +3,6 @@
     <li><%= link_to(cocktail.name, cocktail_path(cocktail)) %></li>
 <% end %></ul>
 <br>
-<%= button_to("Create Cocktail", new_cocktail_path, method: "get") %>
+<%= button_to("Create Cocktail", new_cocktail_path, method: "get") %><br><br>
+
+<%= button_to "Go To Bars", bars_path, method: "get" %>

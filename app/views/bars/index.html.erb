@@ -8,6 +8,10 @@
     <% end %>
 </ul>
 
-<%= link_to "Add a bar", new_bar_path %>
+<%= button_to "Add a bar", new_bar_path, method: "get" %><br><br>
+
+<%= button_to "Go To Cocktails", cocktails_path, method: "get" %>
+
+
 
 

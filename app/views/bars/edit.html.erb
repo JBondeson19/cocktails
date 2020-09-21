@@ -6,6 +6,8 @@
 
 <%= f.label "Bar Location" %>:
 <%= f.text_field :location %><br/><br/>
-
+<%= f.label "Cocktails" %>
+<%= f.collection_select :cocktail_ids, Cocktail.all, :id, :name, {}, {multiple: true} %><br><br>
 <%= f.submit "Edit Bar Info" %>
 <% end %>
+
