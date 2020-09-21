@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
 
-    before_action :find_cocktail, only [:show, :edit, :update, :destroy] #makes it so at the beginning of all four of these methods, find_cocktail is ran (see private method)
+    before_action :find_cocktail, only: [:show, :edit, :update, :destroy] #makes it so at the beginning of all four of these methods, find_cocktail is ran (see private method)
 
     def index
         @cocktails = Cocktail.all
@@ -35,7 +35,7 @@ class CocktailsController < ApplicationController
     private 
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :price, :description)
+        params.require(:cocktail).permit(:name, :price, :description, bar_ids:[])
     end
 
     def find_cocktail

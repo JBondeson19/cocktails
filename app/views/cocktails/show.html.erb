@@ -1,0 +1,23 @@
+<h1>The <%= @cocktail.name %></h1>
+
+<% if @cocktail.description %>
+    <p><%= @cocktail.description %></p>
+<% else %>
+    <p>No description given.</p>
+<% end %>
+
+<p>Price: $<%= @cocktail.price %></p>
+
+<h3>Bars:</h3>
+<% if @cocktail.bars != nil && @cocktail.bars != [] %>
+    <ul><% @cocktail.bars.each do |bar| %>
+        <li><%= link_to(bar.name, bar_path(bar)) %></li>
+    <% end %></ul>
+<% else %>
+    <p>Add a bar to this cocktail, ya dummy!</p>
+<% end %>
+
+<br>
+<%= button_to("Edit Cocktail", edit_cocktail_path(@cocktail), method: "get") %>
+<br>
+<%= link_to("Back to All Cocktails", cocktails_path) %>
