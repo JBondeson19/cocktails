@@ -1,0 +1,11 @@
+<h1>Setting the Bar</h1>
+
+<%= form_for @bar do |f| %>
+<%= f.label "Bar Name" %>:
+<%= f.text_field :name %><br/><br/>
+
+<%= f.label "Bar Location" %>:
+<%= f.text_field :location %><br/><br/>
+
+<%= f.submit "Add New Bar" %>
+<% end %>
