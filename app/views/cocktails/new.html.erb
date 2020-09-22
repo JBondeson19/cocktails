@@ -1,5 +1,5 @@
 <h1>Make a Cocktail!</h1>
-<%= form_for(@cocktail) do |f| %>
+<%= form_with scope: :cocktail, url: create_amount_path do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>
@@ -12,6 +12,12 @@
 
     <%= f.label :bars %>
     <%= f.collection_check_boxes :bar_ids, Bar.all, :id, :name %><br>
-    <!-- # f.multiselect or whatever(:restaurant_id, Restaurant.all, :id, :name) -->
+    <br>
+    <br>
+    <%= f.label :ingredients %>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+
     <%= f.submit("Create Cocktail") %>
 <% end %>
+
+

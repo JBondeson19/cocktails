@@ -26,6 +26,11 @@ class CocktailsController < ApplicationController
         cocktail = Cocktail.create(cocktail_params) #see our private method
         redirect_to(cocktail_path(cocktail))
     end
+
+    def create_drink
+        @cocktail = Cocktail.new(cocktail_params)
+        render :create_drink
+    end
     
     def destroy
         @cocktail.destroy
@@ -33,6 +38,7 @@ class CocktailsController < ApplicationController
     end
 
     def edit_drink
+
     end
 
     private 

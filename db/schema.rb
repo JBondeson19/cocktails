@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_163346) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_bars_on_name", unique: true
   end
 
   create_table "cocktail_ingredients", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_163346) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_cocktails_on_name", unique: true
   end
 
   create_table "ingredients", force: :cascade do |t|
