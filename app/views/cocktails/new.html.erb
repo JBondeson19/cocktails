@@ -1,5 +1,5 @@
 <h1>Make a Cocktail!</h1>
-<%= form_with scope: :cocktail, url: create_amount_path do |f| %>
+<%= form_for(@cocktail) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>

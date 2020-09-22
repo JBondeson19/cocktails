@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
 
-    before_action :find_cocktail, only: [:show, :edit, :update, :destroy] #makes it so at the beginning of all four of these methods, find_cocktail is ran (see private method)
+    before_action :find_cocktail, only: [:show, :edit, :update, :destroy, :add_amounts] #makes it so at the beginning of all four of these methods, find_cocktail is ran (see private method)
 
     def index
         @cocktails = Cocktail.all
@@ -15,7 +15,7 @@ class CocktailsController < ApplicationController
     
     def update
         @cocktail.update(cocktail_params) #see our private method
-        redirect_to(cocktail_path(@cocktail))
+        redirect_to(add_amounts_path(@cocktail))
     end
 
     def new
@@ -24,21 +24,21 @@ class CocktailsController < ApplicationController
 
     def create
         cocktail = Cocktail.create(cocktail_params) #see our private method
-        redirect_to(cocktail_path(cocktail))
+        redirect_to(add_amounts_path(cocktail))
     end
 
-    def create_drink
-        @cocktail = Cocktail.new(cocktail_params)
-        render :create_drink
+    def add_amounts
+        @current_cocktail = {cocktail: @cocktail}
+    end
+
+    def update_amounts
+        @cocktail.update(cocktail_params)
+        redirect_to(cocktail_path(@cocktail))
     end
     
     def destroy
         @cocktail.destroy
         redirect_to(cocktails_path)
-    end
-
-    def edit_drink
-
     end
 
     private 

@@ -9,10 +9,11 @@
 <p>Price: $<%= @cocktail.price %></p>
 
 <ul>
-    <% @cocktail.ingredients.each do |ingredient|%>
+    <% @cocktail.cocktail_ingredients.each do |ci|%>
     <li>
-        <%= ingredient.measurement %>
-        <%= ingredient.name %>
+        <%= ci.quantity %>
+        <%= ci.ingredient.measurement %>
+        <%= ci.ingredient.name %>
 
     </li>
     <% end %>

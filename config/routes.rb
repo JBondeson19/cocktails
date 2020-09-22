@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :bars
   resources :cocktails
 
-  post "/create_drink", to: "cocktails#create_drink", as: "create_amount"
-  get "/edit_drink", to:"cocktails#edit_drink", as: "amount"
+  # (edit)
+  # create -> redirects to add_amounts -> patches, then redirects to show
+  get "cocktails/:id/add_amounts", to: "cocktails#add_amounts", as: "add_amounts"
+  #get "cocktails/:id/add_amounts", to: "cocktails#add_amounts", as "add_amounts"
+  # patch "cocktails/:id/"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
