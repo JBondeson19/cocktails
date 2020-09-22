@@ -1,0 +1,10 @@
+<h1>All the Fixins</h1>
+<ul>
+    <% @ingredients.each do |ingredient| %>
+    <li>
+        <%= link_to ingredient.name, ingredient_path(ingredient) %>
+    </li>    
+    <% end %>
+</ul>
+
+<%= link_to "Add Another Ingredient", new_ingredient_path %>

@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
     before_action :find_ingredients, only: [:show, :edit, :update, :destroy]
 
     def index
-        @ingredient = Ingredient.all
+        @ingredients = Ingredient.all
     end
     
     def show
@@ -18,13 +18,13 @@ class IngredientsController < ApplicationController
     end
 
     def new
-        @bar = Bar.new
+        @ingredient = Ingredient.new
     end
 
     def create
         @ingredient = Ingredient.new(ingredient_params)
         @ingredient.save
-        redirect_to ingredient_path(@ingredient)
+        redirect_to ingredients_path(@ingredient)
     end
     
     def destroy
@@ -38,7 +38,7 @@ class IngredientsController < ApplicationController
         @ingredient = Ingredient.find(params[:id])
     end
 
-    def bar_params
+    def ingredient_params
        params.require(:ingredient).permit(:name, :quantity, :measurement, cocktail_ids:[])
     end
 end
