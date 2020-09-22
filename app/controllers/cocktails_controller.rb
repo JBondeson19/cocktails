@@ -32,10 +32,13 @@ class CocktailsController < ApplicationController
         redirect_to(cocktails_path)
     end
 
+    def edit_drink
+    end
+
     private 
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :price, :description, bar_ids:[])
+        params.require(:cocktail).permit(:name, :price, :description, bar_ids:[], ingredient_ids:[])
     end
 
     def find_cocktail

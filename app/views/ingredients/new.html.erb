@@ -1,8 +1,6 @@
 <%= form_for @ingredient do |f| %>
 <%= f.label "name" %>
 <%= f.text_field :name %>
-<%= f.label "quantity" %>
-<%= f.number_field :quantity, step: :any %>
 <%= f.label "measurement" %>
 <%= f.text_field :measurement %>
 <%= f.submit %>

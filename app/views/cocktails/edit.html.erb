@@ -10,7 +10,13 @@
     <%= f.text_field :description %>
     <br>
     <%= f.label :bars %>
-    <%= f.collection_check_boxes :bar_ids, Bar.all, :id, :name %> <!-- this is some magic, idk -->
+    <%= f.collection_check_boxes :bar_ids, Bar.all, :id, :name %>
+    <br>
+    <br>
+    <%= f.label :ingredients %>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+
+     <!-- this is some magic, idk -->
     <!-- #this is basically gonna be a mix of new, edit, & destroy bar_cocktail all at the same time. should we make a method for it inside of cocktail.rb? not sure... -->
     <br>
     <%= f.submit("Submit Changes") %>

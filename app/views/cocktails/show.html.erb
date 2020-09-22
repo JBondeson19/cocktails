@@ -8,6 +8,16 @@
 
 <p>Price: $<%= @cocktail.price %></p>
 
+<ul>
+    <% @cocktail.ingredients.each do |ingredient|%>
+    <li>
+        <%= ingredient.measurement %>
+        <%= ingredient.name %>
+
+    </li>
+    <% end %>
+</ul>
+
 <h3>Bars:</h3>
 <% if @cocktail.bars != nil && @cocktail.bars != [] %>
     <ul><% @cocktail.bars.each do |bar| %>
